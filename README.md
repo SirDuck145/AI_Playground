@@ -15,6 +15,7 @@ My inital design for the bunny AI had bad weights.<br/>
 Essentially this caused my bunny to roam while it was not hungry.<br/>
 However when the bunny became hungry the AI prioritized tiles closer to itself.<br/>
 If the bunny became too hungry, and did not see food in range, it would sit on its own tile<br/>
+![Unmoving Bunnies](Screenshots/Bunnies_on_grass.png)
 
 ## Lessons Learned So Far
 Designing a mathematical equation for my AI's weights needs to be done with care.<br/>
