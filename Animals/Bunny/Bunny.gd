@@ -10,7 +10,7 @@ var interestedTileData = []
 func _process(delta):
 	if get_tree().get_root().get_node("MainScene/Control").is_holding() == self:
 		# Move to the mouse co-ords
-		position = get_local_mouse_position()
+		position = get_global_mouse_position()
 
 func set_tile(tile):
 	currentTile = tile

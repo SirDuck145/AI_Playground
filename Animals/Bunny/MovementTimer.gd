@@ -5,8 +5,9 @@ var parent = get_parent()
 var pathToScout = []
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
-	if !is_stopped():
-		take_action()
+	if is_stopped():
+		# take_action()
+		pass
 
 func take_action():
 	for tile in get_parent().currentTile.get_connections():
