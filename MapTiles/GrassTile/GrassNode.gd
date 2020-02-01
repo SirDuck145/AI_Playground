@@ -2,7 +2,7 @@ extends Node2D
 
 #North, East, South, West
 var connected = [null, null, null, null]
-var foodSource = null
+var foodSource = 0
 
 func get_north():
 	return connected[0]
@@ -16,6 +16,8 @@ func get_connections():
 	return connected
 func get_food():
 	return foodSource
+func get_position():
+	return position
 
 func set_north(north):
 	connected[0] = north
@@ -32,4 +34,13 @@ func set_food(food):
 # warning-ignore:unused_argument
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
-		print(get_connections())
+		var creature = get_tree().get_root().get_node("MainScene/Control").is_holding()
+		print(self)
+		if creature != null:
+			creature.set_tile(self)
+			creature.position = self.position
+			creature.interestedTileData = [self, -200, []]
+			get_tree().get_root().get_node("MainScene/UI/NinePatchRect/BunnySpawner").remove_child(creature)
+			get_tree().get_root().get_node("MainScene").add_child(creature)
+			get_tree().get_root().get_node("MainScene/Control").set_holding(null)
+

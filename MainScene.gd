@@ -1,7 +1,7 @@
 extends Node2D
 
-var mapHeight = 5
-var mapWidth = 5
+var mapHeight = 25
+var mapWidth = 25
 var tileSize = 64
 var mapData = []
 var grassTile = preload("res://MapTiles/GrassTile/GrassNode.tscn")

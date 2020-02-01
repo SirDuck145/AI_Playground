@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BerryBush.jpg-2548351746e659d6347d8aa51e5e9125.stex"
+path="res://.import/water3.png-e365d7dddf990de2bcea4fb5e48b22aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/BerryBush.jpg"
-dest_files=[ "res://.import/BerryBush.jpg-2548351746e659d6347d8aa51e5e9125.stex" ]
+source_file="res://MapTiles/WaterTile/water3.png"
+dest_files=[ "res://.import/water3.png-e365d7dddf990de2bcea4fb5e48b22aa.stex" ]
 
 [params]
 
