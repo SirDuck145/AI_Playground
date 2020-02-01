@@ -1,0 +1,36 @@
+
+
+func takeAction():
+	for tile in currentTile.get_connections():
+		scout_tile(sight, tile)
+		if(currentTile == interestedTileData[0]): ###THIS IS THE ISSUE
+			pass
+		else:
+			currentTile = interestedTileData[2].pop_front()
+	self.position = currentTile.position
+	speed = speed_timer
+
+func scout_tile(sight, tile):
+	if sight == 0 || tile == null:
+		pathToScout = []
+		return
+	#keeps track of current path
+	pathToScout.append(tile)
+	#calculate if the current tile is the new interested tile
+	var pathWeight = len(pathToScout) #make this the length of the path
+	var foodWeight = tile.get_food()*hunger - pathWeight
+	var roamWeight = (hunger)*pathWeight
+	var tileWantWeight = foodWeight + roamWeight
+	if interestedTileData[1] < tileWantWeight:
+		become_interested(tile, tileWantWeight, pathToScout)
+	if interestedTileData[1] == tileWantWeight:
+		if(randi()%2 == 1):
+			become_interested(tile, tileWantWeight, pathToScout)
+	#Scout the remaining tiles
+	for tiles in tile.get_connections():
+		scout_tile(sight-1, tiles)
+
+func become_interested(tile, want, path):
+	interestedTileData[0] = tile
+	interestedTileData[1] = want
+	interestedTileData[2] = path
